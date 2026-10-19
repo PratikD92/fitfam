@@ -1,0 +1,121 @@
+{
+  "_help": "Edit constants, activity levels, METs and info-popup text here. No code changes needed.",
+  "fatKcalPerKg": 7700,
+  "cmPerFoot": 30.48,
+  "cmPerInch": 2.54,
+  "mlPerCup": 240,
+  "waterResetHour": 6,
+  "sleepAutoOffHours": 7,
+  "reminderLeadMinutes": 15,
+  "sessionMinuteOptions": [
+    15,
+    30,
+    45,
+    60
+  ],
+  "activityLevels": [
+    {
+      "id": "sedentary",
+      "name": "Sedentary",
+      "description": "Little or no exercise",
+      "factor": 1.2
+    },
+    {
+      "id": "light",
+      "name": "Lightly active",
+      "description": "Light exercise 1–3 days/week",
+      "factor": 1.375
+    },
+    {
+      "id": "moderate",
+      "name": "Moderately active",
+      "description": "Moderate exercise 3–5 days/week",
+      "factor": 1.55
+    },
+    {
+      "id": "very",
+      "name": "Very active",
+      "description": "Hard exercise 6–7 days/week",
+      "factor": 1.725
+    },
+    {
+      "id": "extra",
+      "name": "Extra active",
+      "description": "Very hard training or a highly active occupation",
+      "factor": 1.9
+    }
+  ],
+  "mets": {
+    "walking": 3,
+    "cardio": 5,
+    "strength": 4,
+    "yoga": 3,
+    "cycling": 5,
+    "elliptical": 5
+  },
+  "info": {
+    "bmr": {
+      "title": "BMR",
+      "meaning": "Basal Metabolic Rate is the number of calories your body burns every day just to stay alive.",
+      "formula": "BMR = 10 × weight (kg) + 6.25 × height (cm) − 5 × age (years) + 5 for male, − 161 for female\n(Mifflin-St Jeor)"
+    },
+    "tdee": {
+      "title": "TDEE",
+      "meaning": "Total Daily Energy Expenditure is the total number of calories a person burns throughout the day, including resting metabolism, daily movement, exercise and digestion.",
+      "formula": "TDEE = BMR × Activity factor"
+    },
+    "burn": {
+      "title": "Calories burned by activity",
+      "meaning": "Calories burned in one session of an activity.",
+      "formula": "Calories = MET × 3.5 × weight (kg) ÷ 200 × minutes"
+    },
+    "finalTdee": {
+      "title": "Final TDEE",
+      "meaning": "Your daily energy expenditure including planned exercise.",
+      "formula": "Final TDEE = TDEE + Daily burn"
+    },
+    "deficit": {
+      "title": "Daily deficit",
+      "meaning": "Calories you burn beyond what you eat each day.",
+      "formula": "Deficit = Final TDEE − Daily eating"
+    },
+    "weeklyDeficit": {
+      "title": "Weekly deficit",
+      "meaning": "Daily deficit over a full week.",
+      "formula": "Weekly deficit = Daily deficit × 7"
+    },
+    "weeklyLoss": {
+      "title": "Weekly weight loss",
+      "meaning": "Estimated fat loss per week. 1 kg of fat ≈ 7700 kcal.",
+      "formula": "Weekly loss (kg) = Weekly deficit ÷ 7700"
+    },
+    "timeToGoal": {
+      "title": "Time to goal",
+      "meaning": "Estimated time to reach your target weight.",
+      "formula": "Days = (Current kg − Target kg) × 7700 ÷ Daily deficit"
+    },
+    "steps": {
+      "title": "Steps",
+      "meaning": "Calories burned by walking, using a fixed rate per step.",
+      "formula": "Calories = steps × 0.04 kcal"
+    },
+    "activityAvg": {
+      "title": "Average daily burn",
+      "meaning": "Calories burned by your planned activities, averaged over a week.",
+      "formula": "Avg daily = Σ (kcal per session × days per week) ÷ 7\nWeekly = Avg daily × 7\nSession kcal = MET × 3.5 × weight (kg) ÷ 200 × minutes"
+    },
+    "eatingAvg": {
+      "title": "Daily eating",
+      "meaning": "Calories and protein from the foods you have ticked, for one typical day.",
+      "formula": "Daily eating = Σ food kcal (ticked rows)\nWeekly = Daily × 7\nFood kcal = kcal per serving × (qty × unit size ÷ serving size)"
+    }
+  },
+  "kcalPerStep": 0.04,
+  "strengthMinutes": 45,
+  "proteinPerKg": 1.5,
+  "unitGuide": [
+    "1 bowl = 150 g",
+    "1 cup = 240 ml",
+    "1 roti = 35 g"
+  ]
+}

@@ -61,8 +61,8 @@
     },
     "tdee": {
       "title": "TDEE",
-      "meaning": "Total Daily Energy Expenditure is the total number of calories a person burns throughout the day, including resting metabolism, daily movement, exercise and digestion.",
-      "formula": "TDEE = BMR × Activity factor"
+      "meaning": "Total Daily Energy Expenditure is the total number of calories a person burns throughout the day, including their resting metabolism, daily movement, exercise, and digestion.",
+      "formula": "TDEE = BMR × Activity factor\n\nShown as a reference. Final TDEE uses the 1.2 factor plus your logged exercise, because your activity level already includes exercise."
     },
     "burn": {
       "title": "Calories burned by activity",
@@ -71,8 +71,8 @@
     },
     "finalTdee": {
       "title": "Final TDEE",
-      "meaning": "Your daily energy expenditure including planned exercise.",
-      "formula": "Final TDEE = TDEE + Daily burn"
+      "meaning": "Your daily energy expenditure including your planned workouts.",
+      "formula": "Final TDEE = BMR × 1.2 + Daily burn\n\n1.2 covers resting needs plus everyday living. Your logged exercise is added on top, so workouts are not counted twice."
     },
     "deficit": {
       "title": "Daily deficit",
@@ -117,5 +117,58 @@
     "1 bowl = 150 g",
     "1 cup = 240 ml",
     "1 roti = 35 g"
-  ]
+  ],
+  "timetable": [
+    {
+      "id": "wake",
+      "label": "Wake up",
+      "defaultTime": "07:00",
+      "leadMinutes": 0
+    },
+    {
+      "id": "workout",
+      "label": "Workout",
+      "defaultTime": "07:45",
+      "leadMinutes": 30
+    },
+    {
+      "id": "breakfast",
+      "label": "Breakfast",
+      "defaultTime": "08:30",
+      "leadMinutes": 15
+    },
+    {
+      "id": "midmorning",
+      "label": "Mid morning snack",
+      "defaultTime": "11:00",
+      "leadMinutes": 15
+    },
+    {
+      "id": "lunch",
+      "label": "Lunch",
+      "defaultTime": "13:00",
+      "leadMinutes": 15
+    },
+    {
+      "id": "evening",
+      "label": "Evening snack",
+      "defaultTime": "17:00",
+      "leadMinutes": 15
+    },
+    {
+      "id": "dinner",
+      "label": "Dinner",
+      "defaultTime": "20:00",
+      "leadMinutes": 15
+    },
+    {
+      "id": "sleep",
+      "label": "Sleep",
+      "defaultTime": "23:00",
+      "leadMinutes": 15
+    }
+  ],
+  "sleepPromptLeadMinutes": 15,
+  "wakePromptLeadMinutes": 30,
+  "finalTdeeUsesSedentaryBase": true
 }

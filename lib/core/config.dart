@@ -16,6 +16,14 @@ class InfoText {
   const InfoText(this.title, this.meaning, this.formula);
 }
 
+class TimetableRowDef {
+  final String id;
+  final String label;
+  final String defaultTime; // "HH:mm"
+  final int leadMinutes; // reminder fires this many minutes before the time
+  const TimetableRowDef(this.id, this.label, this.defaultTime, this.leadMinutes);
+}
+
 /// Loads assets/data/config.json. Edit that file to change constants,
 /// activity levels, METs or info-popup text. No code change needed.
 class AppConfig {
@@ -39,6 +47,10 @@ class AppConfig {
   double get proteinPerKg => (_j['proteinPerKg'] as num).toDouble();
   List<String> get unitGuide =>
       (_j['unitGuide'] as List).map((e) => e as String).toList();
+  int get sleepPromptLeadMinutes => _j['sleepPromptLeadMinutes'] as int;
+  int get wakePromptLeadMinutes => _j['wakePromptLeadMinutes'] as int;
+  bool get finalTdeeUsesSedentaryBase =>
+      (_j['finalTdeeUsesSedentaryBase'] as bool?) ?? true;
   int get reminderLeadMinutes => _j['reminderLeadMinutes'] as int;
   List<int> get sessionMinuteOptions =>
       (_j['sessionMinuteOptions'] as List).map((e) => e as int).toList();
@@ -53,6 +65,14 @@ class AppConfig {
 
   ActivityLevel levelById(String id) => activityLevels
       .firstWhere((l) => l.id == id, orElse: () => activityLevels.first);
+
+  List<TimetableRowDef> get timetableRows => (_j['timetable'] as List)
+      .map((e) => TimetableRowDef(e['id'] as String, e['label'] as String,
+          e['defaultTime'] as String, e['leadMinutes'] as int))
+      .toList();
+
+  TimetableRowDef timetableRow(String id) =>
+      timetableRows.firstWhere((r) => r.id == id);
 
   InfoText info(String key) {
     final m = (_j['info'] as Map<String, dynamic>)[key] as Map<String, dynamic>;

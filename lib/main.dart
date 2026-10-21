@@ -4,6 +4,7 @@ import 'app.dart';
 import 'core/config.dart';
 import 'core/food_data.dart';
 import 'providers/app_state.dart';
+import 'services/notification_service.dart';
 import 'services/storage_service.dart';
 
 Future<void> main() async {
@@ -13,5 +14,11 @@ Future<void> main() async {
   final storage = StorageService();
   await storage.init();
   final state = AppState(storage)..load();
+  try {
+    await NotificationService.instance.init();
+    await state.rescheduleReminders(); // keeps daily reminders fresh on every launch
+  } catch (e) {
+    debugPrint('Notification setup failed: $e');
+  }
   runApp(ChangeNotifierProvider.value(value: state, child: const FitFamApp()));
 }

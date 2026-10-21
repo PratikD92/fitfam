@@ -10,11 +10,17 @@ android {
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
+        // Added below boolean for time table - CHANGE #01
+        isCoreLibraryDesugaringEnabled = true
+
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
 
     defaultConfig {
+        // Added below boolean for time table - CHANGE #02
+        multiDexEnabled = true
+
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.pratik.fitfam"
         // You can update the following values to match your application needs.
@@ -46,4 +52,9 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+// Added below dependency for time table - CHANGE #03
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }

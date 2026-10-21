@@ -25,7 +25,10 @@ class Calculators {
   }) =>
       met * 3.5 * weightKg / 200 * minutes;
 
-  static double finalTdee(double tdee, double dailyBurn) => tdee + dailyBurn;
+  /// [base] is BMR x 1.2 (resting + everyday living, no workouts), see
+  /// AppState.finalTdeeBase. Logged exercise is added on top, so workouts are
+  /// not counted twice.
+  static double finalTdee(double base, double dailyBurn) => base + dailyBurn;
   static double deficit(double finalTdee, double eating) => finalTdee - eating;
   static double weeklyDeficit(double dailyDeficit) => dailyDeficit * 7;
   static double weeklyLossKg(double weeklyDeficit) =>

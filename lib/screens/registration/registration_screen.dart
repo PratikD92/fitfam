@@ -83,6 +83,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     setState(() => _levelError = _levelId == null);
     if (!formOk || _levelId == null) return;
 
+    final oldProfile = context.read<AppState>().profile;
+    final newWeight = double.parse(_weight.text.trim());
+    if (oldProfile != null && oldProfile.weightKg != newWeight) {
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (c) => AlertDialog(
+          title: const Text('Restart goal progress?'),
+          content: const Text(
+              'Changing your weight restarts your goal progress from today. '
+              'Your exercise marks stay on the calendar.'),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(c, false), child: const Text('No')),
+            FilledButton(
+                onPressed: () => Navigator.pop(c, true), child: const Text('Yes')),
+          ],
+        ),
+      );
+      if (ok != true || !mounted) return;
+    }
+
     final profile = UserProfile(
       name: _name.text.trim(),
       gender: _gender!,

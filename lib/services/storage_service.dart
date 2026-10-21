@@ -12,8 +12,10 @@ class StorageKeys {
   static const water = 'water';
   static const exerciseLog = 'exerciseLog';
   static const goal = 'goal';
+  static const weightLog = 'weightLog';
   static const planHistory = 'planHistory';
   static const deficitSnapshots = 'deficitSnapshots';
+  static const formulaVersion = 'formulaVersion';
 }
 
 /// Everything is stored as JSON strings in shared_preferences.
@@ -21,6 +23,9 @@ class StorageService {
   late final SharedPreferences _p;
 
   Future<void> init() async => _p = await SharedPreferences.getInstance();
+
+  /// Re-reads values from disk (needed after a background isolate wrote data).
+  Future<void> reload() => _p.reload();
 
   Map<String, dynamic>? readMap(String key) {
     final s = _p.getString(key);

@@ -308,7 +308,7 @@ class _DayCell extends StatelessWidget {
                   const SizedBox(height: 3),
                   if (info.rest) pill('Rest', restColor),
                   for (final a in info.planned)
-                    pill(_shortNames[a.id] ?? a.label, activityColors[a.id]!,
+                    pill(_shortNames[a.id] ?? a.label, a.color,
                         o: info.rest ? 0.4 : 1),
                 ],
               ),
@@ -362,7 +362,7 @@ class _Legend extends StatelessWidget {
         children: [
           Wrap(spacing: 14, runSpacing: 6, children: [
             for (final d in activityDefs)
-              dot(activityColors[d.id]!, _shortNames[d.id] ?? d.label),
+              dot(d.color, _shortNames[d.id] ?? d.label),
             dot(restColor, 'Rest'),
           ]),
           const SizedBox(height: 8),

@@ -3,15 +3,6 @@ import 'package:flutter/material.dart';
 const macroCarbColor = Color(0xFFFFB020);
 const macroFatColor = Color(0xFFEF6C57);
 
-/// Colour per activity id, used on the Progress calendar and Activity cards.
-const activityColors = <String, Color>{
-  'steps': Color(0xFF2E9E5B),
-  'strength': Color(0xFFD6336C),
-  'cardio': Color(0xFFF08A24),
-  'cycling': Color(0xFF2F7DE1),
-  'elliptical': Color(0xFF8E5BD6),
-  'yoga': Color(0xFF14A3A3),
-};
 const restColor = Color(0xFF6B7A99);
 
 ThemeData buildTheme() {

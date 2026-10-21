@@ -78,7 +78,7 @@ class MacroBarCard extends StatelessWidget {
           const Divider(height: 26),
           Row(children: [
             const Expanded(
-                child: Text('Protein vs target',
+                child: Text('Protein target',
                     style: TextStyle(fontWeight: FontWeight.w700))),
             Text('${_g(totals.protein)} / ${proteinTarget.round()} g',
                 style: const TextStyle(fontWeight: FontWeight.w700)),
